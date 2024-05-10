@@ -18,6 +18,7 @@ body{
     min-height: 200px;
     padding-top: 1rem;
     font-size: 5rem;
+    text-align: center;
 }
 main{
     display: flex;
@@ -98,7 +99,7 @@ main{
 
 @media screen and (max-width:480px) {
     #bdMsg{
-        font-size: 2rem;
+        font-size: 3rem;
     }
 }
 
