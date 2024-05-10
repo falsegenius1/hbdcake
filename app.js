@@ -6,7 +6,7 @@ const path = require('path');
 // Create an Express application
 const app = express();
 app.set('view engine', 'ejs');
-app.set('views', './views')
+app.set("views", __dirname + "/views");
 // Serve static files from the "public" directory
 app.use(express.static(path.join(__dirname, 'public')));
 
