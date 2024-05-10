@@ -1,0 +1,168 @@
+@font-face {
+    font-family: allura;
+    src: url("/allura.regular.ttf");
+  }
+*{
+    padding: 0;
+    margin: 0;
+}
+#bdMsg{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #e77f28;
+    min-height: 200px;
+    padding-top: 1rem;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 70dvh;
+}
+#micAccessBtn{
+    background: rgb(103, 103, 208);
+    color: white;
+    border-radius: 1rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+.cake{
+    animation: fadeUp 1s ease;
+}
+
+#flame1 {
+    animation: shake 400ms ease infinite, glowUp 2s ease;    
+}
+
+#flame2 {
+    animation: shake 800ms ease alternate infinite, glowUp 2s ease;
+}
+
+#flame3 {
+    animation: shake 1s ease alternate infinite, glowUp 2s ease;
+}
+
+@keyframes shake {
+    20% {
+        opacity: 90%;
+    }
+
+    50% {
+        transform: skew(.3deg);
+        opacity: 100%;
+    }
+
+    80% {
+        opacity: 90%;
+    }
+
+    100% {
+        transform: skew(-.3deg);
+        opacity: 100%;
+    }
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes glowUp {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@media screen and (max-width:780px) {
+    svg{
+        width: 100%;
+
+    }
+}
+
+#balloon-container {
+    height: 100vh;
+    padding: 1em;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    transition: opacity 500ms;
+    background: transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  .balloon {
+    height: 125px;
+    width: 105px;
+    border-radius: 75% 75% 70% 70%;
+    position: relative;
+  }
+  
+  .balloon:before {
+    content: "";
+    height: 75px;
+    width: 1px;
+    padding: 1px;
+    background-color: #FDFD96;
+    display: block;
+    position: absolute;
+    top: 125px;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+  
+  .balloon:after {
+      content: "▲";
+      text-align: center;
+      display: block;
+      position: absolute;
+      color: inherit;
+      top: 120px;
+      left: 0;
+      right: 0;
+      margin: auto;
+  }
+
+  #nameText{
+    font-family: allura;
+  }
+  
+.changeColor{
+    animation: changecolor 10s ease alternate infinite;
+}
+
+@keyframes changecolor {
+    100%{
+        filter: hue-rotate(-90deg);
+    }
+}
+
+  @keyframes float {
+    from {transform: translateY(100vh);
+    opacity: 1;}
+    to {transform: translateY(-300vh);
+    opacity: 0;}
+  }
