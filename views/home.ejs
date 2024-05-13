@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            background-color: bisque;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            gap: 2rem;
+            padding: 1rem;
+        }
+
+        .box-1,
+        .box-2 {
+            max-width: 400px;
+        }
+
+        h1 {
+            font-size: 10rem;
+        }
+
+        .heading p {
+            font-weight: bolder;
+            font-size: 3rem;
+            padding: .4rem;
+            text-align: center;
+            background-color: #FDFD96;
+            border-bottom-right-radius: 3rem;
+            border-top-left-radius: 3rem;
+            text-transform: uppercase;
+        }
+
+        .heading>p:nth-child(2n) {
+            background-color: #e77f28;
+        }
+
+        .box-2 {
+            background-color: #ffcd8a;
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            border-radius: 1rem;
+        }
+
+        .box-2>p {
+            font-size: larger;
+        }
+
+        #form {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        input {
+            width: 100%;
+            padding: .8rem;
+            border: none;
+            border-radius: .2rem;
+            margin-bottom: 1rem;
+        }
+
+        #createBtn {
+            width: 100%;
+            padding: .5rem;
+            font-size: larger;
+            font-weight: medium;
+            border: none;
+            background-color: #FDFD96;
+            text-transform: uppercase;
+            border-bottom: 2px solid #8b8b54;
+        }
+
+        @media screen and (max-width:950px) {
+            .container {
+                flex-direction: column;
+                min-height: 80vh;
+            }
+
+            .heading p {
+                font-size: 2.5rem;
+            }
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            backdrop-filter: blur(5px);
+            display: grid;
+            place-items: center;
+            display: none;
+        }
+
+        .modal {
+            background-color: white;
+        }
+
+        .modal p {
+            margin: 0.4rem 1rem;
+        }
+
+        #closeBtn,
+        #copyBtn {
+            width: 100%;
+            padding: .5rem;
+            font-size: 1rem;
+            font-weight: medium;
+            border: none;
+            background-color: #e77f28;
+        }
+
+        #closeBtn {
+            background-color: #e75b28;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        button:active {
+            opacity: 80%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="overlay">
+        <div class="modal">
+            <p>Send this link:</p>
+            <p id="link">asdasdasdadasd</p>
+            <button id="copyBtn">Copy</button><br>
+            <button id="closeBtn">Close</button>
+        </div>
+    </div>
+    <div class="container">
+        <div class="box-1">
+            <div class="heading">
+                <p>Create a</p>
+                <p>Magical</p>
+                <p>Cake</p>
+                <p>Celebration!</p>
+            </div>
+        </div>
+        <div class="box-2">
+            <p>Enter the birthday person's name to create a cake celebration URL.</p>
+            <form id="form">
+                <input type="text" id="name" placeholder="Enter a name for the cake" autocomplete="off" required>
+                <button id="createBtn" type="submit">Create</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        const form = document.getElementById("form")
+        const copyBtn = document.getElementById("copyBtn")
+        const linkEL = document.getElementById("link")
+        const closeBtn = document.getElementById("closeBtn")
+        const textInp = document.getElementById("name")
+        const overlay = document.querySelector(".overlay")
+        form.addEventListener("submit", (e) => {
+            e.preventDefault()
+            if (textInp.value) {
+                overlay.style.display = "grid"
+                linkEL.textContent = location.href + textInp.value
+            }
+            textInp.value = ""
+        })
+        copyBtn.addEventListener(("click"), () => {
+            navigator.clipboard.writeText(linkEL.textContent).then(() => {
+                copyBtn.textContent = "Copied!"
+                setTimeout(() => { copyBtn.textContent = "Copy" }, 1000)
+            })
+        })
+        closeBtn.addEventListener(("click"), () => {
+            overlay.style.display = "none"
+        })
+    </script>
+</body>
+
+</html>

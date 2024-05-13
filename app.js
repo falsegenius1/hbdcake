@@ -13,7 +13,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Define a route to serve your homepage
 app.get('/', (req, res) => {
     // Send the HTML file as the response
-    res.render("index", {name:""})
+    res.render("home")
 });
 app.get('/:name', (req, res) => {
     let name = req.params.name
