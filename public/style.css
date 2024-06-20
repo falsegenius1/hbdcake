@@ -1,6 +1,6 @@
 @font-face {
-    font-family: allura;
-    src: url("/allura.regular.ttf");
+    font-family: birthday;
+    src: url("/birthday.ttf");
   }
 *{
     padding: 0;
@@ -19,6 +19,7 @@ body{
     padding-top: 1rem;
     font-size: 5rem;
     text-align: center;
+    letter-spacing: .25rem;
 }
 main{
     display: flex;
@@ -151,7 +152,7 @@ main{
   }
 
   #nameText{
-    font-family: allura;
+    font-family: birthday;
   }
   
 .changeColor{

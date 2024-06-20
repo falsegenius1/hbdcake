@@ -38,7 +38,7 @@ function setupAudio() {
                   console.log(nameT);
                   bdMsgEl.innerHTML = `Happy Birthday <br> ${nameT}`;
                   bdMsgEl.classList.add("changeColor");
-                  bdMsgEl.style.fontFamily = "allura";
+                  bdMsgEl.style.fontFamily = "birthday";
                   const hbdaudio = new Audio("/hbd.mp3");
                   const cheeraudio = new Audio("/cheering.mp3");
                   cheeraudio.play();
