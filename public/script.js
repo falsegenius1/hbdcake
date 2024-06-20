@@ -39,8 +39,10 @@ function setupAudio() {
                   bdMsgEl.innerHTML = `Happy Birthday <br> ${nameT}`;
                   bdMsgEl.classList.add("changeColor");
                   bdMsgEl.style.fontFamily = "allura";
-                  const audio = new Audio("/hbd.mp3");
-                  audio.play();
+                  const hbdaudio = new Audio("/hbd.mp3");
+                  const cheeraudio = new Audio("/cheering.mp3");
+                  cheeraudio.play();
+                  hbdaudio.play();
                   stopMicrophone();
                   confetti({
                     particleCount: 500,
