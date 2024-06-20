@@ -147,7 +147,7 @@
     <div class="overlay">
       <div class="modal">
         <p>Send this link:</p>
-        <p id="link">asdasdasdadasd</p>
+        <p><a href="#" id="link">asdasdasdadasd</a></p>
         <button id="copyBtn">Copy</button><br />
         <button id="closeBtn">Close</button>
       </div>
@@ -189,6 +189,7 @@
         if (textInp.value) {
           overlay.style.display = "grid";
           linkEL.textContent = location.href + textInp.value;
+          linkEL.setAttribute("href", location.href + textInp.value)
         }
         textInp.value = "";
       });
