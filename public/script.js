@@ -25,7 +25,7 @@ function setupAudio() {
             }
             const average = sum / inputData.length;
             const amp = Math.round(average * 10000);
-            if (amp > 850) {
+            if (amp > 1000) {
               const randomFlameIndex =
                 Math.floor(Math.random() * flameCount) + 1;
               const flame = document.getElementById("flame" + randomFlameIndex);
