@@ -8,7 +8,11 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <script defer src="https://umami-false-analytics.vercel.app/script.js" data-website-id="2600e6db-bd0c-4bdf-aa1e-19371f31892b"></script>
+    <script
+      defer
+      src="https://umami-false-analytics.vercel.app/script.js"
+      data-website-id="2600e6db-bd0c-4bdf-aa1e-19371f31892b"
+    ></script>
     <style>
       body {
         padding: 0;
@@ -76,7 +80,7 @@
         margin-bottom: 1rem;
       }
 
-      input:focus{
+      input:focus {
         outline: none;
       }
 
@@ -191,8 +195,10 @@
         e.preventDefault();
         if (textInp.value) {
           overlay.style.display = "grid";
-          linkEL.textContent = encodeURI(location.href + textInp.value);
-          linkEL.setAttribute("href", encodeURI(location.href + textInp.value))
+          const url = new URL(location.href);
+          const newPath = `${url.origin}/${textInp.value}`;
+          linkEL.textContent = newPath;
+          linkEL.setAttribute("href", newPath);
         }
         textInp.value = "";
       });
